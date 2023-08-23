@@ -1,0 +1,10 @@
+args:
+  checkpoint_path: '../checkpoints/'
+  slides_dir: '../slides'   # Directory where .svs/.ndpi/.tiff files are stored
+  coords_dir: '../segmentation_patching/patches'    # Directory where .h5 files containing patch coordinates are stored
+  output_dir:  './output_features'    # Directory where you want to store the .h5 and .pt files containing patch features
+  ext:  'svs'
+  batch_size:  256    # Batch size
+  tile_size:   128    # Size of the patch (NXN)
+  file_list_txt: null  # Include a txt file containing the full path of the specific slides. 
+                        # Otherwise, it will process all the slides in the slides_dir
