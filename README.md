@@ -8,6 +8,6 @@ Segmentation allows to separate the tissue from background in WSIs. The output a
 ```
 python preprocessing/segmentation/segmentation.py
 ```
-⋅⋅* Paramters configuration in preprocessing/segmentation/config.yaml
+* Paramters configuration in preprocessing/segmentation/config.yaml
 
 ![Supplementary01](https://github.com/GlastonburyC/RNAPath/assets/115783390/e8effb2a-3f4a-44c6-9f2a-44ec05d709c2)
