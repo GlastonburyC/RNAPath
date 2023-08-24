@@ -19,3 +19,5 @@ We divide the tissue region of the WSI into small squared tiles (e.g. 128x128); 
 python preprocessing/segmentation_patching/tiling.py
 ```
 * Paramters configuration in preprocessing/segmentation_patching/config.yaml
+
+<img width="907" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/c39e7b54-a7b6-4516-bc52-858472c3acd8">
