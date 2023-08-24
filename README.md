@@ -3,7 +3,7 @@ Francesco Cisternino, Sara Ometto, Soumick Chatterjee, Edoardo Giacopuzzi, Adam 
 
 
 # WSI Preprocessing
-1. Segmentation
+## 1. Segmentation
 Segmentation allows to separate the tissue from background in WSIs. The output are binary masks (stored as .jpeg).
 ```
 python preprocessing/segmentation_patching/segmentation.py
@@ -13,7 +13,7 @@ python preprocessing/segmentation_patching/segmentation.py
 ![Supplementary01](https://github.com/GlastonburyC/RNAPath/assets/115783390/e8effb2a-3f4a-44c6-9f2a-44ec05d709c2)
 
 
-2. Tiling
+## 2. Tiling
 We divide the tissue region of the WSI into small squared tiles (e.g. 128x128); this allows both to process the WSI through GPU and to obtain local (tile-level) results.
 ```
 python preprocessing/segmentation_patching/tiling.py
