@@ -20,4 +20,5 @@ python preprocessing/segmentation_patching/tiling.py
 ```
 * Paramters configuration in preprocessing/segmentation_patching/config.yaml
 
-<img width="907" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/c39e7b54-a7b6-4516-bc52-858472c3acd8">
+<img width="907" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/3d2d3dfc-57b5-4e3f-9dd5-524773386d23">
+
