@@ -6,9 +6,9 @@ Segmentation allows to separate the tissue from background in WSIs. The output a
 ```
 python preprocessing/segmentation_patching/segmentation.py
 ```
-* Paramters configuration in preprocessing/segmentation_patching/config.yaml
+* Parameters configuration in preprocessing/segmentation_patching/config.yaml
 
-![Supplementary01](https://github.com/GlastonburyC/RNAPath/assets/115783390/e8effb2a-3f4a-44c6-9f2a-44ec05d709c2)
+![Supplementary01](imgs/263006106-e8effb2a-3f4a-44c6-9f2a-44ec05d709c2.png)
 
 
 ## 2. Tiling
@@ -19,7 +19,7 @@ python preprocessing/segmentation_patching/tiling.py
 * Parameters configuration in preprocessing/segmentation_patching/config.yaml
 * The output of patching for each slide is a .h5 file containing a 2D array of shape (K, 2) - where K is the number of tiles - with the upper left corner coordinates of each tile.
 
-<img width="907" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/3d2d3dfc-57b5-4e3f-9dd5-524773386d23">
+<img width="907" alt="image" src="imgs/263020413-3d2d3dfc-57b5-4e3f-9dd5-524773386d23.png">
 
 
 ## 3. Features extraction
