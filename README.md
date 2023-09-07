@@ -39,5 +39,8 @@ _[WIP - We are still transfering code from our internal gitlab to this github re
 
 
 # RNAPath
+## 1. Training
 
 RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (). 
+
+
