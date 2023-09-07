@@ -46,6 +46,18 @@ RNAPath training requires patch features to represent WSIs, train/validation/tes
 The training script requires some arguments to be set:
 * tissue_code: alphanumeric code to indentify the tissue of interest
 * data_root_dir: main directory of patch features
-* split_dir: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code})
+* split_dir: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code}) (default: None)
+* results_dir: directory where results will be stored (default: './results')
+* exp_code: experiment code to identify logs and results of the actual run
+* max_epochs: maximum number of epochs (default: 200)
+* lr: starting learning rate (default: 1e-4)
+* lr_scheduler: learning rate scheduler; choices are 'constant' and 'plateau'; in the latter case, the lr drops after 10 epochs without validation loss improvement (default: 'plateau')
+* label_frac: fraction of training labels (default: 1.0)
+* reg: weight decay (default: 1e-3)
+* seed: random seed for reproducible experiment (default: 1)
+* log_data: log data using tensorboiard (default: False)
+* early_stopping: whether to enable early stopping; training stops after 20 epochs without validation loss improvements (default: True)
+* bag_droput: whether to apply droput to bag instances (default: True)
+* opt: optimizer; possible choices are 'adam' and 'sgd' (default: 'adam')
 
 
