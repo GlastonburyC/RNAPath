@@ -87,9 +87,28 @@ The inference scripts requires the following arguments:
 * *--ckpt_path*: path to RNAPath model checkpoint
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
 ```
-python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
+python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
 ```
 
 ### 2.2 Visualization
 
+The predicted localization of gene activity can be visually represented by plotting patch logits over the histology sample. Heatmaps are stored in the jpeg format.
+The following arguments are needed:
+
+* *--gene_name*: gene name (description)
+* *--slide_id*: full ID of the histology sample
+* *--tissue_name*: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
+* *--tissue_code*: alphanumeric code to indentify the tissue of interest
+* *--save_dir*: directory where heatmaps images will be stored
+* *--features_dir*: main directory of patch features
+* *--patch_logits_dir*: directory where patch logits are stored
+* *--results_dir*: trainig results directory
+* *--slides_dir*: raw whole slide images directory
+* *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
+
+```
+python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusMucosa --tissue_code EMUC --save_dir /path/to/save/dir --features_dir /path/to/features/dir --patch_logits_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --slides_dir /path/to/wsi/dir --multiple_patch_sets
+```
+
+<img width="655" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/911fa316-8ccb-4ea6-90ca-e0defda65e35">
 
