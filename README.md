@@ -11,7 +11,8 @@ python preprocessing/segmentation_patching/segmentation.py
 ```
 * Parameters configuration in preprocessing/segmentation_patching/config.yaml
 
-![image](https://github.com/GlastonburyC/RNAPath/assets/115783390/92d5c4e3-d34c-4c48-8992-d0ce9253c915)
+![image](https://github.com/GlastonburyC/RNAPath/assets/115783390/aff88069-de35-4fcd-99a6-515985272cae)
+
 
 
 ## 2. Tiling
