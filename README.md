@@ -20,6 +20,7 @@ The tissue region of WSI, identified by segmentation, is divided into small squa
 python preprocessing/segmentation_patching/tiling.py
 ```
 * Parameters configuration in preprocessing/segmentation_patching/config.yaml
+* The weights of the ViT-S trained on 1.7M tiles from 23 GTEx tissues is available at (link to big files folder).
 * The output of patching for each slide is a .h5 file containing a 2D array of shape (K, 2) - where K is the number of tiles - with the upper left corner coordinates of each tile.
 
 <img width="907" alt="image" src="imgs/263020413-3d2d3dfc-57b5-4e3f-9dd5-524773386d23.png">
@@ -41,6 +42,10 @@ _[WIP - We are still transfering code from our internal gitlab to this github re
 # RNAPath
 ## 1. Training
 
-RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (). 
+RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (link to big files folder).
+The training script requires some arguments to be set:
+* tissue_code: alphanumeric code to indentify the tissue of interest
+* data_root_dir: main directory of patch features
+* split_dir: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code})
 
 
