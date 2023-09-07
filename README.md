@@ -48,6 +48,7 @@ _[WIP - We are still transfering code from our internal gitlab to this github re
 ## 1. Training
 
 RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (link to big files folder).
+In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected.
 The training script requires some arguments to be set:
 * *--exp_code* : experiment code to identify logs and results of the actual run
 * *--tissue_code*: alphanumeric code to indentify the tissue of interest
@@ -85,7 +86,6 @@ The inference scripts requires the following arguments:
 * *--results_dir*: trainig results directory
 * *--ckpt_path*: path to RNAPath model checkpoint
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
-
 ```
 python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
 ```
