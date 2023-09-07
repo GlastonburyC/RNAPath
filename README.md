@@ -11,8 +11,7 @@ python preprocessing/segmentation_patching/segmentation.py
 ```
 * Parameters configuration in preprocessing/segmentation_patching/config.yaml
 
-![image](https://github.com/GlastonburyC/RNAPath/assets/115783390/60f10522-828d-4d8f-bc79-6640183832c5)
-
+<img width="882" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/b101fb2f-9975-4e65-bd42-643ef17b57ee">
 
 ## 2. Tiling
 The tissue region of WSI, identified by segmentation, is divided into small squared tiles (or patches) (e.g. 128x128); this allows both to process the WSI through GPU and to obtain local (tile-level) results.
