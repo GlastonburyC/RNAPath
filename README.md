@@ -90,3 +90,6 @@ The inference scripts requires the following arguments:
 python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
 ```
 
+### 2.2 Visualization
+
+
