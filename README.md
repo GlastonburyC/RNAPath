@@ -78,13 +78,13 @@ During training, training and validation loss values will be logged and a result
 At inference, trained models are used to infer patch-level expression. Patch logits are stored as .pt files and can be used to plot heatmaps of the genes of interest.
 The inference scripts requires the following arguments:
 
-* **--tissue_name**: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
-* tissue_code: alphanumeric code to indentify the tissue of interest
-* features_dir: main directory of patch features
-* output_dir: directory where patch logits will be stored
-* results_dir: trainig results directory
-* ckpt_path: path to RNAPath model checkpoint
-* multiple_patch_sets: if multiple partially overlapping patch sets are used for the same slide (default: False)
+* *--tissue_name*: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
+* *--tissue_code*: alphanumeric code to indentify the tissue of interest
+* *--features_dir*: main directory of patch features
+* *--output_dir*: directory where patch logits will be stored
+* *--results_dir*: trainig results directory
+* *--ckpt_path*: path to RNAPath model checkpoint
+* *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
 
 ```
 python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
