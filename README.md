@@ -78,7 +78,7 @@ During training, training and validation loss values will be logged and a result
 At inference, trained models are used to infer patch-level expression. Patch logits are stored as .pt files and can be used to plot heatmaps of the genes of interest.
 The inference scripts requires the following arguments:
 
-* ==tissue_name==: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
+* **--tissue_name**: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
 * tissue_code: alphanumeric code to indentify the tissue of interest
 * features_dir: main directory of patch features
 * output_dir: directory where patch logits will be stored
