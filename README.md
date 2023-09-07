@@ -61,5 +61,5 @@ The training script requires some arguments to be set:
 * opt: optimizer; possible choices are 'adam' and 'sgd' (default: 'adam')
 
 ```
-python train.py --exp_code test_0 --tissue_code COL --data_root_dir /path/to/features/dir
+python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir
 ```
