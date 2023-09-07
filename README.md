@@ -63,3 +63,5 @@ The training script requires some arguments to be set:
 ```
 python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir
 ```
+
+During training, training and validation loss values will be logged and a results folder will be created (inside results_dir) and named as the experiment code; in this folder, the gene-level r-scores for both validation and test set and the weights checkpoint file will be stored.
