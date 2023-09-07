@@ -73,6 +73,8 @@ During training, training and validation loss values will be logged and a result
 
 ## 2. Inference and visualization
 
+### 2.1 Inference
+
 At inference, trained models are used to infer patch-level expression. Patch logits are stored as .pt files and can be used to plot heatmaps of the genes of interest.
 The inference scripts requires the following arguments:
 
