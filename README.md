@@ -37,9 +37,6 @@ python preprocessing/features_extraction/extract_features.py
 * The output of features extraction for each slide is a .pt file containing a 2D tensor of shape (K, 384), where K is the number of tiles and 384 the number of features.
 * During features extraction, white patches that could have been included in the tissue mask are filtered out; tipically this happens if there are very small holes in the tissue sample. For this reason, we also store a .h5 file for each slide containing both the features and the final list of coordinates.
 
-_[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
-
-
 # RNAPath
 
 <img width="477" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/2c49a2d2-df71-44af-9cb4-15f7bb6d4c8a">
@@ -114,3 +111,6 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 
 # Tissue multiclass segmentation by tiles clustering
+
+_[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
+
