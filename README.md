@@ -49,21 +49,21 @@ _[WIP - We are still transfering code from our internal gitlab to this github re
 
 RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (link to big files folder).
 The training script requires some arguments to be set:
-* exp_code: experiment code to identify logs and results of the actual run
-* tissue_code: alphanumeric code to indentify the tissue of interest
-* data_root_dir: main directory of patch features
-* split_dir: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code}) (default: None)
-* results_dir: directory where results will be stored (default: './results')
-* max_epochs: maximum number of epochs (default: 200)
-* lr: starting learning rate (default: 1e-4)
-* lr_scheduler: learning rate scheduler; choices are 'constant' and 'plateau'; in the latter case, the lr drops after 10 epochs without validation loss improvement (default: 'plateau')
-* label_frac: fraction of training labels (default: 1.0)
-* reg: weight decay (default: 1e-3)
-* seed: random seed for reproducible experiment (default: 1)
-* log_data: log data using tensorboiard (default: False)
-* early_stopping: whether to enable early stopping; training stops after 20 epochs without validation loss improvements (default: True)
-* bag_droput: whether to apply droput to bag instances (default: True)
-* opt: optimizer; possible choices are 'adam' and 'sgd' (default: 'adam')
+* *--exp_code* : experiment code to identify logs and results of the actual run
+* *--tissue_code*: alphanumeric code to indentify the tissue of interest
+* *--data_root_dir*: main directory of patch features
+* *--split_dir*: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code}) (default: None)
+* *--results_dir*: directory where results will be stored (default: './results')
+* *--max_epochs*: maximum number of epochs (default: 200)
+* *--lr*: starting learning rate (default: 1e-4)
+* *--lr_scheduler*: learning rate scheduler; choices are 'constant' and 'plateau'; in the latter case, the lr drops after 10 epochs without validation loss improvement (default: 'plateau')
+* *--label_frac*: fraction of training labels (default: 1.0)
+* *--reg*: weight decay (default: 1e-3)
+* *--seed*: random seed for reproducible experiment (default: 1)
+* *--log_data*: log data using tensorboiard (default: False)
+* *--early_stopping*: whether to enable early stopping; training stops after 20 epochs without validation loss improvements (default: True)
+* *--bag_droput*: whether to apply droput to bag instances (default: True)
+* *--opt*: optimizer; possible choices are 'adam' and 'sgd' (default: 'adam')
 
 ```
 python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir
