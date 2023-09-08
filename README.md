@@ -121,8 +121,8 @@ SLIDES_DIRECTORY/
     │   ├── slide_2.svs
     │   └── ...
     ├── Tissue2
-    │   ├── slide_1.svs
-    │   ├── slide_2.svs
+    │   ├── slide_3.svs
+    │   ├── slide_4.svs
     │   └── ...
 ```
 
