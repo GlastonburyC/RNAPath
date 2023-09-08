@@ -146,7 +146,7 @@ python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --outp
 
 # Image derived phenotypes
 
-Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipose tissue, etc.) are derived using the .csv files with the patch classes output by the multiclass tissue segmentation script. 
+Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipocytes, etc.) are derived using the patch classes output by the multiclass tissue segmentation script; indeed, these phenotypes reflect the relative amount of each target class in a sample.
 The following script can be used to compute such phenotypes as proportions (with respect to the sample size). This will make the compositional phenotypes comparable across samples.
 ```
 python compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
@@ -157,6 +157,12 @@ The script outputs a csv file for each tissue, in the following format:
 | Slide ID | IDP_0 | IDP_1 | IDP_2 | IDP_3 | IDP_4 | IDP_5 | IDP_6 |
 |----------|----------|----------|----------|----------|----------|----------|----------|
 | SLIDE_001|20.9%|25.1%|44.3%|1.0%|2.5%|1.8%|4.9%|
+
+Compositional phenotypes are easy to interpretate, but they are not the proper choice for statistical analysis, given the closure problem. For this reason, they can be turned into pivot coordinates (a special case of isometric logratio coordinates):
+
+```
+python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
+```
 
 # GWAS
 
