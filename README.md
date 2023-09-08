@@ -113,8 +113,6 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 # Tissue multiclass segmentation by tiles clustering
 
-_[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
-
 
 # GWAS
 
@@ -124,3 +122,4 @@ Regional plots, Manhattan plots and quantile-quantile plots were generated with 
 
 <img width="907" alt="image" src="imgs/20230908-122647.png">
 
+_[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
