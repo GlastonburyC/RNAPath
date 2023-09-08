@@ -156,7 +156,8 @@ The script outputs a csv file for each tissue, in the following format:
 
 | Slide ID | IDP_0 | IDP_1 | IDP_2 | IDP_3 | IDP_4 | IDP_5 | IDP_6 |
 |----------|----------|----------|----------|----------|----------|----------|----------|
-| SLIDE_001|20.9%|25.1%|44.3%|1.0%|2.5%|1.8%|4.9%|
+| SLIDE_001|20.9%|25.1%|44.3%|1.0%|2.5%|1.2%|4.9%|
+| SLIDE_002|39.6%|23.1%|33.0%|1.5%|1.2%|2.8%|3.5%|
 
 Compositional phenotypes are easy to interpretate, but they are not the proper choice for statistical analysis, given the closure problem. For this reason, they can be turned into pivot coordinates (a special case of isometric logratio coordinates):
 
