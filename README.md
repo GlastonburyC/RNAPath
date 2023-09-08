@@ -113,6 +113,10 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 # Tissue multiclass segmentation by tiles clustering
 
+To segment tissues by patch-level classification using a k-Nearest Neighbors model, two steps are required:
+1. Defining instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled.
+
+
 
 # GWAS
 
