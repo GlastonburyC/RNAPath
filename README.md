@@ -64,7 +64,7 @@ The training script requires some arguments to be set:
 * *--opt*: optimizer; possible choices are 'adam' and 'sgd' (default: 'adam')
 
 ```
-python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir
+python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir/
 ```
 
 During training, training and validation loss values will be logged and a results folder will be created (inside results_dir) and named as the experiment code; in this folder, the gene-level r-scores for both validation and test set and the weights checkpoint file will be stored.
@@ -84,7 +84,7 @@ The inference scripts requires the following arguments:
 * *--ckpt_path*: path to RNAPath model checkpoint
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
 ```
-python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
+python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir/ --output_dir /path/to/patch_logits/dir/ --results_dir /path/to/results/dir/ --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
 ```
 
 ### 2.2 Visualization
@@ -104,7 +104,7 @@ The following arguments are needed:
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
 
 ```
-python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusMucosa --tissue_code EMUC --save_dir /path/to/save/dir --features_dir /path/to/features/dir --patch_logits_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --slides_dir /path/to/wsi/dir --multiple_patch_sets
+python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusMucosa --tissue_code EMUC --save_dir /path/to/save/dir --features_dir /path/to/features/dir --patch_logits_dir /path/to/patch_logits/dir/ --results_dir /path/to/results/dir/ --slides_dir /path/to/wsi/dir/ --multiple_patch_sets
 ```
 
 <img width="706" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/a92aa060-da76-4a8a-b807-767f038cfcf8">
@@ -134,8 +134,15 @@ python define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/fea
 2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the .h5 and classify all the patches of the WSIs. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
 As arguments, the tissue name, the output directory, the patch features main directory and the slides directory are required.
 ```
-python multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir --features_dir /path/to/features/dir --slides_dir /path/to/slides/dir
+python multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slides_dir /path/to/slides/dir/
 ```
+A script for fine-grained segmentation is also provided; in this case, the 4 partially overlapping patch sets are used for the same slide and, in the regions where multiple patch sets overlap, classes are assigned by majority voting. 
+
+```
+python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
+```
+![Uploading image.png…]()
+
 
 # GWAS
 
