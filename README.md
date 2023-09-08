@@ -113,12 +113,29 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 # Tissue multiclass segmentation by tiles clustering
 
+These scripts foresee the following file organization for the WSI; please, apply changes to the code in case of different structure.
+```
+SLIDES_DIRECTORY/
+    ├── Tissue1
+    │   ├── slide_1.svs
+    │   ├── slide_2.svs
+    │   └── ...
+    ├── Tissue2
+    │   ├── slide_1.svs
+    │   ├── slide_2.svs
+    │   └── ...
+```
+
 To segment tissues by patch-level classification using a k-Nearest Neighbors model, two steps are required:
-1. Defining instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a h5 file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
+1. Definition of instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a h5 file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
 ```
 python define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/features_extraction/checkpoint.pth
 ```
-
+2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the .h5 and classify all the patches of the WSIs. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
+As arguments, the tissue name, the output directory, the patch features main directory and the slides directory are required.
+```
+python multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir --features_dir /path/to/features/dir --slides_dir /path/to/slides/dir
+```
 
 # GWAS
 
