@@ -115,7 +115,9 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 To segment tissues by patch-level classification using a k-Nearest Neighbors model, two steps are required:
 1. Defining instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled.
-
+```
+python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir --output_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
+```
 
 
 # GWAS
