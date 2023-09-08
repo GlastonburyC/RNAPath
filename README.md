@@ -113,7 +113,7 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 # Tissue multiclass segmentation by tiles clustering
 
-These scripts foresee the following file organization for the WSI; please, apply changes to the code in case of different structure.
+The following scripts foresee this file organization for the WSI; please, apply changes to the code in case of different structure.
 ```
 SLIDES_DIRECTORY/
     ├── Tissue1
@@ -144,7 +144,20 @@ python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --outp
 
 <img width="510" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/5ea6a74e-2888-4922-984b-6db43980da07" align="center">
 
+# Image derived phenotypes
 
+Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipose tissue, etc.) are derived using the .csv files with the patch classes output by the multiclass tissue segmentation script. 
+The following script can be used to compute such phenotypes as proportions (with respect to the sample size). This will make the compositional phenotypes comparable across samples.
+```
+python compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
+```
+The script outputs a csv file for each tissue, in the following format:
+
+```
+| Slide ID | Epithelium | Smooth muscle | Stroma | Inflammation | Erosive esophagitis | Glands | Congestion |
+|----------|----------|----------|----------|----------|----------|----------|----------|
+| SLIDE_001    |    20.9%   |    25.1%    |          |          |          |          |          |
+```
 
 # GWAS
 
