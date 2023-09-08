@@ -167,6 +167,18 @@ python image_derived_phenotypes/compute_pivot_coordinates.py --tissue_name Esoph
 
 # Differential expression analysis
 
+Differential expression analysis of image derived phenotypes has been performed by linear models fitting. To run the analysis, some parameters are required:
+
+* *--tissue_name*
+* *--gtex_expression_bed_file*: bed file with normalized expression levels for the selected tissue
+* *--gtex_subject_phenotypes_file*: file containing subject phenotypes
+* *--gtex_covariates_file*: covariates file (provided by GTEx)
+* *--idps_format*: phenotypes format; possible choices are 'binary' for binary phenotypes (e.g. presence/absence of calcification in arteries), 'compositional' and 'pivot', whose difference has been described in the previous section.
+
+```
+python differential_expression_analysis/differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --gtex_normalized_expression_bed_file /path/to/gtex/expression/bed --gtex_subject_phenotypes_file /path/to/subject/phenotypes --gtex_covariates_file /path/to/gtex/covariates --idps_format pivot
+```
+  
 # GWAS
 
 The genome-wide association analysis was conducted using [nf-pipeline-regenie](https://github.com/HTGenomeAnalysisUnit/nf-pipeline-regenie) (v1.8.1). A config file defining the computations environment and a config file for the project (example in ./gwas/gtex.conf) are needed to launch the pipeline. A complete description on how to use it and template files can be found in the linked repository.
