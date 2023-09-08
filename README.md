@@ -162,7 +162,7 @@ The script outputs a csv file for each tissue, in the following format:
 Compositional phenotypes are easy to interpretate, but they are not the proper choice for statistical analysis, given the closure problem. For this reason, they can be turned into pivot coordinates (a special case of isometric logratio coordinates):
 
 ```
-python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
+python image_derived_phenotypes/compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
 ```
 
 # Differential expression analysis
