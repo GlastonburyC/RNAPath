@@ -50,7 +50,7 @@ for c in classes:
     print(f'{c}: {len(images_clusters[classes.index(c)])} images')
 
 # Load features extraction model
-model = FeaturesExtraction_Vit(arch='vit_small', pretrained_weights="/home/f.cisternino/WSIproj/dino/results/ALL/checkpoint.pth")
+model = FeaturesExtraction_Vit(arch='vit_small', pretrained_weights=args.checkpoint_path)
 model.model.eval()
 model.model.to(DEVICE)
 
