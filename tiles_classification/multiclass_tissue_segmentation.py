@@ -19,7 +19,9 @@ parser.add_argument("--features_dir", type=str, default=None)
 parser.add_argument("--slides_dir", type=str, default=None)
 args = parser.parse_args()
 
+# tissue name
 tissue = args.tissue_name
+# scale factor (for slide downscaling)
 SCALE_FACTOR = 8
 TILE_SIZE = 128
 
@@ -61,34 +63,36 @@ def slide_segmentation(features, coords, slidename, downscaled_img, tissue, outp
     pd.DataFrame(classes_df, columns=['coord_x', 'coord_y', 'label']).to_csv(os.path.join(output_dir, tissue, slidename + '.csv'), index=False)    
     downscaled_img.save(os.path.join(output_dir, tissue, slidename + '.jpeg'))
 
-# Slide names are retrieved using 
-df = pd.read_csv('../resources/slides_dataset.csv')
 
-# List of slide names to iterate
-SLIDES = df[df.tissue == tissue].slide_id.tolist()
+if __name__ == 'main':
+    # Slide names are retrieved using 
+    df = pd.read_csv('../resources/slides_dataset.csv')
 
-SLIDES = SLIDES[:2]
+    # List of slide names to iterate
+    SLIDES = df[df.tissue == tissue].slide_id.tolist()
 
-# Create output directory
-os.makedirs(os.path.join(args.output_dir, tissue), exist_ok=True)
+    SLIDES = SLIDES[:2]
 
-print(f'Tissue: {tissue}', f'number of slides: {len(SLIDES)}')
+    # Create output directory
+    os.makedirs(os.path.join(args.output_dir, tissue), exist_ok=True)
+
+    print(f'Tissue: {tissue}', f'number of slides: {len(SLIDES)}')
 
 
-for slidename in SLIDES:
-    
-    # Features h5 file
-    h5_file = f'{args.features_dir}/h5_files/{slidename}.h5'
+    for slidename in SLIDES:
+        
+        # Features h5 file
+        h5_file = f'{args.features_dir}/h5_files/{slidename}.h5'
 
-    print('Slide name: ', slidename, flush=True)
+        print('Slide name: ', slidename, flush=True)
 
-    # Get features and coordinates from h5
-    coords_tile, features_tile = get_features_h5(h5_file)
-    coords_tile, features_tile = np.array(coords_tile), np.array(features_tile)
+        # Get features and coordinates from h5
+        coords_tile, features_tile = get_features_h5(h5_file)
+        coords_tile, features_tile = np.array(coords_tile), np.array(features_tile)
 
-    # Open slide
-    slide = openslide.open_slide(f'{args.slides_dir}/{tissue}/{slidename}.svs')
-    # Get downscaled version for visualization
-    downscaled_img, _ = slide_to_scaled_pil_image(slide, SCALE_FACTOR=8)
-    # Multiclass segmentation by tiles classification
-    slide_segmentation(features_tile, coords_tile, slidename, downscaled_img, tissue, args.output_dir)
+        # Open slide
+        slide = openslide.open_slide(f'{args.slides_dir}/{tissue}/{slidename}.svs')
+        # Get downscaled version for visualization
+        downscaled_img, _ = slide_to_scaled_pil_image(slide, SCALE_FACTOR=8)
+        # Multiclass segmentation by tiles classification
+        slide_segmentation(features_tile, coords_tile, slidename, downscaled_img, tissue, args.output_dir)
