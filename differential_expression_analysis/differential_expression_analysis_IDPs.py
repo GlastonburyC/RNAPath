@@ -16,8 +16,7 @@ parser.add_argument("--tissue_name", type=str, default=None)
 parser.add_argument("--gtex_normalized_expression_bed_file", type=str, default=None)
 parser.add_argument("--gtex_subject_phenotypes_file", type=str, default=None)
 parser.add_argument("--gtex_covariates_file", type=str, default=None)
-parser.add_argument("--pivot", action='store_true', default=False)
-parser.add_argument("--binary", action='store_true', default=False)
+parser.add_argument("--idps_format", choices=['binary', 'compositional', 'pivot'], default='pivot)
 args = parser.parse_args()
 
 f = open("../clusters.yaml", "r")
@@ -49,9 +48,9 @@ cov.columns = col_names
 subjects = cov.index.tolist()
 
 # Open image derived phenotypes (idps) file
-if args.pivot: 
+if args.idps_format == 'pivot': 
     idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_pivot.csv', index_col = 0)
-elif args.binary:
+elif args.idps_format == 'binary':
     idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_binary.csv', index_col = 0)
 else:
     idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_compositional.csv', index_col = 0)
@@ -114,9 +113,9 @@ for i in range(idps_df.shape[0]):
 
 # This dataframe now contains both image derived phenotypes and clinical info, including
 # the covariates we need for the linear model
-if args.pivot:
+if args.idps_format == 'pivot':
     clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_pivot.csv', index=False)
-if args.binary:
+if args.idps_format == 'binary':
     clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_binary.csv', index=False)
 else:
     clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_compositional.csv', index=False)
@@ -168,11 +167,11 @@ for target in targets:
     summary_df['std_error'] = standard_errors
 
     
-    if args.pivot:
+    if args.idps_format == 'pivot':
         os.makedirs(f'./DEA/{args.tissue_name}', exist_ok=True)
         summary_df.to_csv(f'./DEA/{args.tissue_name}/{target}_differential_expression.csv', index = False)
 
-    elif args.binary:
+    elif args.idps_format == 'binary':
         os.makedirs(f'./DEA/{args.tissue_name}_binary', exist_ok=True)
         summary_df.to_csv(f'./DEA/{args.tissue_name}_binary/{target}_differential_expression.csv', index = False)
     else:
