@@ -13,7 +13,7 @@ def get_first_two_fields(s):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--tissue_name", type=str, default=None)
-parser.add_argument("--gtex_normalized_expression_bed_file", type=str, default=None)
+parser.add_argument("--gtex_expression_bed_file", type=str, default=None)
 parser.add_argument("--gtex_subject_phenotypes_file", type=str, default=None)
 parser.add_argument("--gtex_covariates_file", type=str, default=None)
 parser.add_argument("--idps_format", choices=['binary', 'compositional', 'pivot'], default='pivot)
