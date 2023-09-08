@@ -153,11 +153,10 @@ python compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to
 ```
 The script outputs a csv file for each tissue, in the following format:
 
-```
+
 | Slide ID | Epithelium | Smooth muscle | Stroma | Inflammation | Erosive esophagitis | Glands | Congestion |
 |----------|----------|----------|----------|----------|----------|----------|----------|
 | SLIDE_001    |    20.9%   |    25.1%    |          |          |          |          |          |
-```
 
 # GWAS
 
