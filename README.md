@@ -115,3 +115,10 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 _[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
 
+
+# GWAS
+
+The genome-wide association analysis was conducted using [nf-pipeline-regenie](https://github.com/HTGenomeAnalysisUnit/nf-pipeline-regenie) (v1.8.1). A config file defining the computations environment and a config file for the project (example in ./gwas/gtex.conf) are needed to launch the pipeline. A complete description on how to use it and template files can be found in the linked repository.
+
+Full summary statistics are available in a shared drive. Regional plots, Manhattan plots and quantile-quantile plots were generated with [GWASLab](https://github.com/Cloufield/gwaslab) (v3.4.21).
+
