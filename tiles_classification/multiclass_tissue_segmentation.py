@@ -25,7 +25,7 @@ SCALE_FACTOR = 8
 TILE_SIZE = 128
 
 # Open clusters yaml and load tissue classes with their corresponding colors for visualization
-f = open("clusters.yaml", "r")
+f = open("../resources/clusters.yaml", "r")
 doc = yaml.load(f, Loader=yaml.FullLoader)
 classes = doc[tissue]['classes']
 colors = doc[tissue]['colors']
