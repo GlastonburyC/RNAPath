@@ -107,7 +107,8 @@ The following arguments are needed:
 python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusMucosa --tissue_code EMUC --save_dir /path/to/save/dir --features_dir /path/to/features/dir --patch_logits_dir /path/to/patch_logits/dir --results_dir /path/to/results/dir --slides_dir /path/to/wsi/dir --multiple_patch_sets
 ```
 
-<img width="655" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/911fa316-8ccb-4ea6-90ca-e0defda65e35">
+<img width="706" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/a92aa060-da76-4a8a-b807-767f038cfcf8">
+
 
 
 # Tissue multiclass segmentation by tiles clustering
