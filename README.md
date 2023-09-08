@@ -141,7 +141,8 @@ A script for fine-grained segmentation is also provided; in this case, the 4 par
 ```
 python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
 ```
-![image](https://github.com/GlastonburyC/RNAPath/assets/115783390/b8a2526c-4be7-4bcd-b711-9979e21d3313)
+<img width="380" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/16681f45-9bfa-47b7-b441-79b7009c1d01">
+
 
 
 # GWAS
