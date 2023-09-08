@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 
 # Load classes and colors from yaml file
-f = open("clusters.yaml", "r")
+f = open("../resources/clusters.yaml", "r")
 doc = yaml.load(f, Loader=yaml.FullLoader)
 classes = doc[args.tissue_name]['classes']
 colors = doc[args.tissue_name]['colors']
