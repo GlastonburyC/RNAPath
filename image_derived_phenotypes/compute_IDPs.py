@@ -11,7 +11,7 @@ parser.add_argument("--output_dir", type=str, default=None)
 args = parser.parse_args()
 
 # Load classes from yaml
-f = open("../clusters.yaml", "r")
+f = open("../resources/clusters.yaml", "r")
 doc = yaml.load(f, Loader=yaml.FullLoader)
 classes = doc[args.tissue_name]['classes']
 
