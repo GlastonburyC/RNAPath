@@ -13,7 +13,6 @@ import pandas as pd
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--tissue_name", type=str, default=None)
-parser.add_argument("--checkpoint_path", type=str, default=None)
 parser.add_argument("--output_dir", type=str, default=None)
 parser.add_argument("--features_dir", type=str, default=None)
 parser.add_argument("--slides_dir", type=str, default=None)
