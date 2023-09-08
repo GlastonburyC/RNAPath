@@ -129,17 +129,17 @@ SLIDES_DIRECTORY/
 To segment tissues by patch-level classification using a k-Nearest Neighbors model, two steps are required:
 1. Definition of instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a h5 file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
 ```
-python define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/features_extraction/checkpoint.pth
+python tiles_classification/define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/features_extraction/checkpoint.pth
 ```
 2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the .h5 and classify all the patches of the WSIs. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
 As arguments, the tissue name, the output directory, the patch features main directory and the slides directory are required.
 ```
-python multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slides_dir /path/to/slides/dir/
+python tiles_classification/multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slides_dir /path/to/slides/dir/
 ```
 A script for fine-grained segmentation is also provided; in this case, the 4 partially overlapping patch sets are used for the same slide and, in the regions where multiple patch sets overlap, classes are assigned by majority voting. 
 
 ```
-python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
+python tiles_classification/fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
 ```
 
 <img width="510" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/5ea6a74e-2888-4922-984b-6db43980da07" align="center">
@@ -149,7 +149,7 @@ python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --outp
 Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipocytes, etc.) are derived using the patch classes output by the multiclass tissue segmentation script; indeed, these phenotypes reflect the relative amount of each target class in a sample.
 The following script can be used to compute such phenotypes as proportions (with respect to the sample size). This will make the compositional phenotypes comparable across samples.
 ```
-python compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
+python image_derived_phenotypes/compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
 ```
 The script outputs a csv file for each tissue, in the following format:
 
@@ -164,6 +164,8 @@ Compositional phenotypes are easy to interpretate, but they are not the proper c
 ```
 python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
 ```
+
+# Differential expression analysis
 
 # GWAS
 
