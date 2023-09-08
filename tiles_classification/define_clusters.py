@@ -1,9 +1,9 @@
 import glob
 from PIL import Image
-from wsi_preprocessing.model import FeaturesExtraction_Vit, FeaturesExtraction_IMAGENET
+from preprocessing.model import FeaturesExtraction_Vit, FeaturesExtraction_IMAGENET
 import random
 import argparse
-from wsi_preprocessing.preprocessing_utils import save_hdf5
+from preprocessing.preprocessing_utils import save_hdf5
 import torch
 import numpy as np
 import tqdm
