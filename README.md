@@ -190,7 +190,7 @@ Regional plots, Manhattan plots and quantile-quantile plots were generated with 
 
 # Interaction eQTLs
 
-Interaction eQTLs have been analyzed using [tensorqtl], a gpu-enabled QTL mapper; the required input are the genoptypes, the gene expression, the interaction term (in this case, the image derived phenotypes, one per donor) and the coviariates.
+Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadinstitute/tensorqtl), a gpu-enabled QTL mapper; the required input are the genoptypes, the gene expression, the interaction term (in this case, the image derived phenotypes, one per donor) and the coviariates.
 
 <img width="661" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/314c11f0-3b19-4f88-af47-10022f950967">
 
