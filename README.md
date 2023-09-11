@@ -32,7 +32,7 @@ python tiling.py
 
 Tile images are turned into features vectors capturing their morphological content. To do this, we use a vision transformer (ViT-S) trained on 1.7 M histology patches using a self-supervised approach.
 ```
-cd ./preprocessing/features_extraction/
+cd ./preprocessing/features_extraction
 python extract_features.py
 ```
 * Paramters configuration in preprocessing/features_extraction/config.yaml
@@ -153,7 +153,8 @@ python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --outp
 Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipocytes, etc.) are derived using the patch classes output by the multiclass tissue segmentation script; indeed, these phenotypes reflect the relative amount of each target class in a sample.
 The following script can be used to compute such phenotypes as proportions (with respect to the sample size). This will make the compositional phenotypes comparable across samples.
 ```
-python image_derived_phenotypes/compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
+cd ./image_derived_phenotypes
+python compute_IDPs.py --tissue_name EsophagusMucosa --segmentation_dir /path/to/segmentation/dir/ --output_dir /path/to/idps/dir/
 ```
 The script outputs a csv file for each tissue, in the following format:
 
@@ -166,7 +167,8 @@ The script outputs a csv file for each tissue, in the following format:
 Compositional phenotypes are easy to interpretate, but they are not the proper choice for statistical analysis, given the closure problem. For this reason, they can be turned into pivot coordinates (a special case of isometric logratio coordinates):
 
 ```
-python image_derived_phenotypes/compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
+cd ./image_derived_phenotypes
+python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
 ```
 
 # Differential expression analysis
@@ -180,6 +182,7 @@ Differential expression analysis of image derived phenotypes has been performed 
 * *--idps_format*: phenotypes format; possible choices are 'binary' for binary phenotypes (e.g. presence/absence of calcification in arteries), 'compositional' and 'pivot', whose difference has been described in the previous section.
 
 ```
+cd ./differential_expression_analysis
 python differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --gtex_normalized_expression_bed_file /path/to/gtex/expression/bed --gtex_subject_phenotypes_file /path/to/subject/phenotypes --gtex_covariates_file /path/to/gtex/covariates --idps_format pivot
 ```
 
