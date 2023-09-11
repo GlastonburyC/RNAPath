@@ -194,5 +194,5 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 
 <img width="661" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/314c11f0-3b19-4f88-af47-10022f950967">
 
-
+# Supplementary Material and Data
 _[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
