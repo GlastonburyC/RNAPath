@@ -12,7 +12,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--tissue_name", type=str, default=None)
 parser.add_argument("--tissue_code", type=str, default=None)
-parser.add_argument("--logits_dir", type=str, default=None)
+parser.add_argument("--patch_logits_dir", type=str, default=None)
 parser.add_argument("--segmentation_dir", type=str, default=None)
 parser.add_argument("--features_dir", type=str, default=None)
 args = parser.parse_args()    
@@ -44,7 +44,7 @@ for slidename in slides:
         print(f'{slidename}, {slides.index(slidename) + 1}/{len(slides)}', flush=True)
 
     # load patch logits
-    patch_logits = torch.load(f'{args.logits_dir}/{args.tissue_name}/{slidename}.pt', map_location='cpu')
+    patch_logits = torch.load(f'{args.patch_logits_dir}/{args.tissue_name}/{slidename}.pt', map_location='cpu')
     patch_logits_df = pd.DataFrame(patch_logits).astype(np.float32)
 
     # load tile classes df
