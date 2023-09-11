@@ -176,8 +176,10 @@ Differential expression analysis of image derived phenotypes has been performed 
 * *--idps_format*: phenotypes format; possible choices are 'binary' for binary phenotypes (e.g. presence/absence of calcification in arteries), 'compositional' and 'pivot', whose difference has been described in the previous section.
 
 ```
-python differential_expression_analysis/differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --gtex_normalized_expression_bed_file /path/to/gtex/expression/bed --gtex_subject_phenotypes_file /path/to/subject/phenotypes --gtex_covariates_file /path/to/gtex/covariates --idps_format pivot
+python differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --gtex_normalized_expression_bed_file /path/to/gtex/expression/bed --gtex_subject_phenotypes_file /path/to/subject/phenotypes --gtex_covariates_file /path/to/gtex/covariates --idps_format pivot
 ```
+
+# SSES - Substructure Specific Enrichment Analysis
   
 # GWAS
 
