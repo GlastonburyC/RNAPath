@@ -81,7 +81,7 @@ The inference scripts requires the following arguments:
 * *--tissue_name*: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
 * *--tissue_code*: alphanumeric code to indentify the tissue of interest
 * *--features_dir*: main directory of patch features
-* *--output_dir*: directory where patch logits will be stored
+* *--output_dir*: directory where patch level expression values (patch logits) will be stored
 * *--results_dir*: trainig results directory
 * *--ckpt_path*: path to RNAPath model checkpoint
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
@@ -128,7 +128,7 @@ SLIDES_DIRECTORY/
     │   └── ...
 ```
 
-To segment tissues by patch-level classification using a k-Nearest Neighbors model, two steps are required:
+To segment tissues into substructures or localised pathologies by patch-level classification using a k-Nearest Neighbors model, two steps are required:
 1. Definition of instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a h5 file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
 ```
 python tiles_classification/define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/features_extraction/checkpoint.pth
@@ -171,6 +171,24 @@ cd ./image_derived_phenotypes
 python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /path/to/idps/dir/
 ```
 
+# SSES - Substructure-Specific Enrichment Analysis
+
+SSES combines results from RNAPath (local RNASeq prediction) with tiles classification into tissue substructures or localised pathologies. The output of this analyis is a set of enrichment scores, one per each couple (gene, substructure) indicating the ratio between the predicted expression inside the substructure/pathology and the bulk (sample-level) predicted expression; the bigger this value, the more the expression of the gene will be focused in that substructure/pathology.
+The following arguments are required
+
+
+```
+python enrichment.py --tissue_name EsophagusMucosa --tissue_code EMUC --patch_logits_dir /path/to/patch/logits --segmentation_dir /path/to/segmentation/results/ --features_dir /path/to/features
+```
+* *--tissue_name*
+* *--tissue_code*
+* *--patch_logits_dir*: directory where patch level expression values (logits) have been stored
+* *--segmentation:dir*: directory containing segmentation results
+* *--features_dir*: features_directory
+
+The script outputs a csv file with as many row as the number of genes and as many columns as the number of identified classes (substructures/pathologies).
+  
+
 # Differential expression analysis
 
 Differential expression analysis of image derived phenotypes has been performed by linear models fitting. To run the analysis, some parameters are required:
@@ -186,7 +204,7 @@ cd ./differential_expression_analysis
 python differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --gtex_normalized_expression_bed_file /path/to/gtex/expression/bed --gtex_subject_phenotypes_file /path/to/subject/phenotypes --gtex_covariates_file /path/to/gtex/covariates --idps_format pivot
 ```
 
-# SSES - Substructure Specific Enrichment Analysis
+
   
 # GWAS
 
