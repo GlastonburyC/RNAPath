@@ -230,6 +230,7 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 | Features Extraction|[DINO checkpoint (.pt)](https://drive.google.com/file/d/1jvN-A1e_4SrqK6MUkjm0-H8bO_QyKARW/view?usp=sharing)||
 | RNAPath|RNASeq dataframe||
 | RNAPath|[Results and checkpoints](https://drive.google.com/drive/folders/1f-5iPdHQZZWZFLuBHIclxXZFsixhGsMy?usp=sharing)||
+| RNAPath|[Tissue codes - full names mapping](https://drive.google.com/drive/folders/1f-5iPdHQZZWZFLuBHIclxXZFsixhGsMy?usp=sharing)||
 | Image Derived Phenotypes|[Derived substructures](https://drive.google.com/drive/folders/193B2dlZqLqYQwtuVZmBBtrl0dwsv2wD0?usp=sharing)||
 | Image Derived Phenotypes|[Differential expression analysis summary stats](https://drive.google.com/drive/folders/1aPfFU94OKI0h5wPy-inw5f2YkdM__Gys?usp=sharing)||
 | Image Derived Phenotypes|[Differential expression analysis - Genes enrichment](https://drive.google.com/drive/folders/1aPfFU94OKI0h5wPy-inw5f2YkdM__Gys?usp=sharing)||
