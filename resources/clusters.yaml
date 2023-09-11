@@ -1,0 +1,150 @@
+CoronaryArtery:
+  colors:
+      intima: [255, 0, 0, 100]
+      media : [0, 0, 255, 100]
+      adventitia : [0, 255, 0, 100]
+      calcification : [0, 0, 0, 100]
+      atherosclerosis: [255, 255, 0, 100]
+      adipocytes: [178, 102, 255, 100]
+      nerve: [255, 128, 0, 100]
+      RBC:  [255, 0, 255, 100]
+      blood_clot: [0, 153, 153, 100]
+      
+  classes : ['intima', 'media', 'adventitia', 'calcification', 'atherosclerosis', 'adipocytes', 'nerve', 'RBC', 'blood_clot']
+
+TibialArtery:
+  colors:
+      intima: [255, 0, 0, 100]
+      media : [0, 0, 255, 100]
+      adventitia : [0, 255, 0, 100]
+      calcification : [0, 0, 0, 100]
+      atherosclerosis: [255, 255, 0, 100]
+      adipocytes: [178, 102, 255, 100]
+      nerve: [255, 128, 0, 100]
+      RBC:  [255, 0, 255, 100]
+      blood_clot: [0, 153, 153, 100]
+      
+  classes : ['intima', 'media', 'adventitia', 'calcification', 'atherosclerosis', 'adipocytes', 'nerve', 'RBC', 'blood_clot']
+
+
+Skin: 
+  colors:
+    dermis: [255, 0, 0, 100]
+    eccrine_gland : [0, 0, 255, 100]
+    hair_follicle : [0, 255, 0, 100]
+    papillary_dermis: [255, 255, 0, 100]
+    adipocytes: [178, 102, 255, 100]
+    sebaceous_gland: [50, 90, 38, 100]
+    squamous_epithelium: [102, 51, 0, 100]
+    solar_elastosis: [0, 153, 153, 100]
+    vessel: [255, 0, 255, 100]
+    
+  classes : ['dermis', 'eccrine_gland', 'hair_follicle', 'papillary_dermis', 'adipocytes', 'sebaceous_gland', 'squamous_epithelium',  'solar_elastosis', 'vessel']
+
+SuprapubicSkin: 
+  colors:
+    dermis: [255, 0, 0, 100]
+    eccrine_gland : [0, 0, 255, 100]
+    hair_follicle : [0, 255, 0, 100]
+    papillary_dermis: [255, 255, 0, 100]
+    adipocytes: [178, 102, 255, 100]
+    sebaceous_gland: [50, 90, 38, 100]
+    squamous_epithelium: [102, 51, 0, 100]
+    solar_elastosis: [0, 153, 153, 100]
+    vessel: [255, 0, 255, 100]
+    
+  classes : ['dermis', 'eccrine_gland', 'hair_follicle', 'papillary_dermis', 'adipocytes', 'sebaceous_gland', 'squamous_epithelium',  'solar_elastosis', 'vessel']
+
+
+EsophagusMucosa:
+  colors:
+      epithelium: [255, 0, 0, 100]
+      smooth_muscle : [0, 0, 255, 100]
+      stroma : [0, 255, 0, 100]
+      inflammation : [0, 0, 0, 100]
+      ErosiveEsophagitis: [255, 255, 0, 100]
+      glands: [178, 102, 255, 100]
+      congestion: [255, 128, 0, 100]
+      
+  classes : ['epithelium', 'smooth_muscle', 'stroma', 'inflammation', 'ErosiveEsophagitis', 'glands', 'congestion']
+
+
+EsophagusMuscularis:
+  colors:
+      epithelium: [255, 0, 0, 100]
+      smooth_muscle : [0, 0, 255, 100]
+      stroma : [0, 255, 0, 100]
+      inflammation : [0, 0, 0, 100]
+      ErosiveEsophagitis: [255, 255, 0, 100]
+      glands: [178, 102, 255, 100]
+      congestion: [255, 128, 0, 100]
+      
+  classes : ['epithelium', 'smooth_muscle', 'stroma', 'inflammation', 'ErosiveEsophagitis', 'glands', 'congestion']
+
+
+MammaryTissueBreast:
+  colors:
+      duct: [255, 0, 0, 100] #
+      stroma : [0, 0, 255, 100]
+      adipocyte : [0, 255, 0, 100]
+      lobule : [0, 0, 0, 100] #
+      nerve: [255, 255, 0, 100] 
+      gynecomastoid_hyperplasia: [178, 102, 255, 100]
+      
+  classes : ['duct', 'stroma', 'adipocyte', 'lobule', 'nerve', 'gynecomastoid_hyperplasia']
+
+
+SkeletalMuscle:
+  colors:
+      tendon: [255, 0, 0, 100]
+      connective_tissue : [0, 0, 255, 100]
+      atrophy : [0, 255, 0, 100]
+      calcification : [0, 0, 0, 100]
+      atrophy_and_chronic_myositis: [255, 255, 0, 100]
+      adipocytes: [178, 102, 255, 100]
+      nerve: [255, 128, 0, 100]
+      rbc:  [255, 0, 255, 100]
+      skeletal_muscle: [0, 153, 153, 100]
+      pacinian_corpuscle: [100, 182, 255, 100]
+      vessel: [128, 128, 128, 100]
+      autolysed: [0, 128, 255, 100]
+      
+  classes : ['tendon', 'connective_tissue', 'atrophy', 'calcification', 'atrophy_and_chronic_myositis', 'adipocytes', 'nerve', 'rbc', 'skeletal_muscle', 'pacinian_corpuscle', 'vessel', 'autolysed']
+
+
+Colon:
+  colors:
+      mucosa: [255, 0, 0, 100]
+      submucosa : [0, 0, 255, 100]
+      mucus : [0, 255, 0, 100]
+      muscularis : [0, 0, 0, 100]
+      adipocyte: [178, 102, 255, 100]
+      
+  classes : ['mucosa', 'submucosa', 'mucus', 'muscularis', 'adipocyte'] 
+
+
+SigmoidColon:
+  colors:
+      mucosa: [255, 0, 0, 100]
+      submucosa : [0, 0, 255, 100]
+      chronic_colitis : [0, 255, 0, 100]
+      muscularis : [0, 0, 0, 100]
+      adipocyte: [178, 102, 255, 100]
+      adventitia: [0, 128, 255, 100]
+      autolysed_mucosa: [255, 128, 0, 100]
+      
+  classes : ['mucosa', 'submucosa', 'chronic_colitis', 'muscularis', 'adipocyte', 'adventitia', 'autolysed_mucosa']
+
+TibialNerve:
+  colors:
+      intima: [255, 0, 0, 100]
+      media : [0, 0, 255, 100]
+      adventitia : [0, 255, 0, 100]
+      calcification : [0, 0, 0, 100]
+      atherosclerosis: [255, 255, 0, 100]
+      adipocytes: [178, 102, 255, 100]
+      nerve: [255, 128, 0, 100]
+      RBC:  [255, 0, 255, 100]
+      blood_clot: [0, 153, 153, 100]
+      
+  classes : ['intima', 'media', 'adventitia', 'calcification', 'atherosclerosis', 'adipocytes', 'nerve', 'RBC', 'blood_clot']

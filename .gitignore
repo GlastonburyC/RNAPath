@@ -1,1 +1,3 @@
 resources/rnaseq_complete.csv
+image_derived_phenotypes/IDPs/EsophagusMucosa_compositional.csv
+image_derived_phenotypes/IDPs/EsophagusMucosa_pivot.csv

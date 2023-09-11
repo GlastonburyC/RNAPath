@@ -16,14 +16,14 @@ parser.add_argument("--tissue_name", type=str, default=None)
 parser.add_argument("--gtex_expression_bed_file", type=str, default=None)
 parser.add_argument("--gtex_subject_phenotypes_file", type=str, default=None)
 parser.add_argument("--gtex_covariates_file", type=str, default=None)
-parser.add_argument("--idps_format", choices=['binary', 'compositional', 'pivot'], default='pivot)
+parser.add_argument("--idps_format", choices=['binary', 'compositional', 'pivot'], default='pivot')
 args = parser.parse_args()
 
-f = open("../clusters.yaml", "r")
+f = open("../resources/clusters.yaml", "r")
 doc = yaml.load(f, Loader=yaml.FullLoader)
 classes = doc[args.tissue_name]['classes']
 
-expression_df, gene_pos_df = tensorqtl.read_phenotype_bed(args.normalized_expression_bed_file)
+expression_df, gene_pos_df = tensorqtl.read_phenotype_bed(args.gtex_expression_bed_file)
 
 
 # WSI Samples Dataset
@@ -49,13 +49,15 @@ subjects = cov.index.tolist()
 
 # Open image derived phenotypes (idps) file
 if args.idps_format == 'pivot': 
-    idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_pivot.csv', index_col = 0)
+    idps_df = pd.read_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_pivot.csv', index_col = 0)
 elif args.idps_format == 'binary':
-    idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_binary.csv', index_col = 0)
+    idps_df = pd.read_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_binary.csv', index_col = 0)
 else:
-    idps_df = pd.read_csv(f'./IDPs/{args.tissue_name}_compositional.csv', index_col = 0)
+    idps_df = pd.read_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_compositional.csv', index_col = 0)
 
 
+# remove duplicates
+idps_df = idps_df[~idps_df.index.str[:-1].duplicated()]
 idps_df = idps_df.sort_index()
 idps_df['case_id'] = idps_df.index
 # get case id by removing the last field in the GTEx ID
@@ -67,7 +69,8 @@ idps_df = idps_df.drop('case_id', axis='columns')
 # IDPs names
 targets = idps_df.columns.tolist()
 
-rnaseq = pd.read_csv('./RNA-SEQ-Analysis/GTEx_RNASeQ_tailed.gct', sep = '\t')
+# Read genes info df to convert gene ensemble ids into descriptions 
+genes_info_df = pd.read_csv('../resources/genes_info.csv')
 
 for i in range(idps_df.shape[0]):
 
@@ -114,17 +117,17 @@ for i in range(idps_df.shape[0]):
 # This dataframe now contains both image derived phenotypes and clinical info, including
 # the covariates we need for the linear model
 if args.idps_format == 'pivot':
-    clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_pivot.csv', index=False)
+    clinical_info_df.to_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_with_clinical_info_pivot.csv', index=False)
 if args.idps_format == 'binary':
-    clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_binary.csv', index=False)
+    clinical_info_df.to_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_with_clinical_info_binary.csv', index=False)
 else:
-    clinical_info_df.to_csv(f'./IDPs/{args.tissue_name}_with_clinical_info_compositional.csv', index=False)
+    clinical_info_df.to_csv(f'../image_derived_phenotypes/IDPs/{args.tissue_name}_with_clinical_info_compositional.csv', index=False)
 
 clinical_info_df = clinical_info_df.set_index('ID', drop=True)
 
 # list of genes
 genes = expression_df.index.tolist()
-descriptions = rnaseq.loc[rnaseq.Name.isin(genes)]['Description'].tolist()
+descriptions = genes_info_df.loc[genes_info_df.gene_id.isin(genes)]['gene_name'].tolist()
 
 
 # for each image derived phenotype
@@ -168,7 +171,7 @@ for target in targets:
 
     
     if args.idps_format == 'pivot':
-        os.makedirs(f'./DEA/{args.tissue_name}', exist_ok=True)
+        os.makedirs(f'./DEA/{args.tissue_name}_pivot', exist_ok=True)
         summary_df.to_csv(f'./DEA/{args.tissue_name}/{target}_differential_expression.csv', index = False)
 
     elif args.idps_format == 'binary':
