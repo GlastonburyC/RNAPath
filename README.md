@@ -227,15 +227,15 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 
 | Data | Link |
 |----------|----------|
-| Features Extraction|DINO checkpoint||
+| Features Extraction|[DINO checkpoint (.pt)](https://drive.google.com/file/d/1jvN-A1e_4SrqK6MUkjm0-H8bO_QyKARW/view?usp=sharing)||
 | RNAPath|RNASeq dataframe||
-| RNAPath|Results and checkpoints||
-| Image Derived Phenotypes|Derived substructures||
-| Image Derived Phenotypes|Differential expression analysis summary stats||
-| Image Derived Phenotypes|Differential expression analysis - Genes enrichment||
-| Image Derived Phenotypes|GWAS summary stats||
+| RNAPath|[Results and checkpoints](https://drive.google.com/drive/folders/1f-5iPdHQZZWZFLuBHIclxXZFsixhGsMy?usp=sharing)||
+| Image Derived Phenotypes|[Derived substructures](https://drive.google.com/drive/folders/193B2dlZqLqYQwtuVZmBBtrl0dwsv2wD0?usp=sharing)||
+| Image Derived Phenotypes|[Differential expression analysis summary stats](https://drive.google.com/drive/folders/1aPfFU94OKI0h5wPy-inw5f2YkdM__Gys?usp=sharing)||
+| Image Derived Phenotypes|[Differential expression analysis - Genes enrichment]()||
+| Image Derived Phenotypes|[GWAS summary stats](https://drive.google.com/drive/folders/1eZ0qhJgFoF-3aXWEJMAEfcy5-8H2Mj1i?usp=sharing)||
 | Image Derived Phenotypes|ieQTLs summary stats||
-| RNAPath - Image Derived Phenotypes|SSES enrichments||
+| RNAPath - Image Derived Phenotypes|[SSES enrichments](https://drive.google.com/drive/folders/1f8-jgkAlR0Q7KGhhCnmXWZ3j7veqv0t5?usp=sharing)||
 
 
 
