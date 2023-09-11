@@ -25,8 +25,9 @@ python tiling.py
 * The weights of the ViT-S trained on 1.7M tiles from 23 GTEx tissues is available at (link to big files folder).
 * The output of patching for each slide is a .h5 file containing a 2D array of shape (K, 2) - where K is the number of tiles - with the upper left corner coordinates of each tile.
 
+<p align="center">
 <img width="907" alt="image" src="imgs/263020413-3d2d3dfc-57b5-4e3f-9dd5-524773386d23.png">
-
+</p>
 
 ## 3. Features extraction
 
@@ -41,8 +42,9 @@ python extract_features.py
 
 # RNAPath
 
+<p align="center">
 <img width="477" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/2c49a2d2-df71-44af-9cb4-15f7bb6d4c8a">
-
+</p>
 
 ## 1. Training
 
@@ -110,9 +112,9 @@ The following arguments are needed:
 ```
 python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusMucosa --tissue_code EMUC --save_dir /path/to/save/dir --features_dir /path/to/features/dir --patch_logits_dir /path/to/patch_logits/dir/ --results_dir /path/to/results/dir/ --slides_dir /path/to/wsi/dir/ --multiple_patch_sets
 ```
-<center>
+<p align="center">
 <img width="706" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/a92aa060-da76-4a8a-b807-767f038cfcf8">
-</center>
+</p>
 
 
 # Tissue multiclass segmentation by tiles clustering
@@ -147,8 +149,9 @@ A script for fine-grained segmentation is also provided; in this case, the 4 par
 cd ./tiles_classification
 python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
 ```
-
+<p align="center">
 <img width="510" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/5ea6a74e-2888-4922-984b-6db43980da07" align="center">
+</p>
 
 # Image derived phenotypes
 
@@ -214,14 +217,17 @@ The genome-wide association analysis was conducted using [nf-pipeline-regenie](h
 
 Regional plots, Manhattan plots and quantile-quantile plots were generated with [GWASLab](https://github.com/Cloufield/gwaslab) (v3.4.21).
 
+<p align="center">
 <img width="907" alt="image" src="imgs/20230908-122647.png">
-
+</p>
 
 # Interaction eQTLs
 
 Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadinstitute/tensorqtl), a gpu-enabled QTL mapper; the required input are the genoptypes, the gene expression, the interaction term (in this case, the image derived phenotypes, one per donor) and the coviariates.
 
+<p align="center">
 <img width="661" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/314c11f0-3b19-4f88-af47-10022f950967">
+</p>
 
 # Supplementary Material and Data
 
