@@ -228,7 +228,8 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 | Features Extraction|DINO checkpoint||
 | RNAPath|Results and checkpoints||
 | Image Derived Phenotypes|Derived substructures||
-| Image Derived Phenotypes|Differential expression analysis results||
+| Image Derived Phenotypes|Differential expression analysis summary stats||
+| Image Derived Phenotypes|Differential expression analysis - Genes enrichment||
 | Image Derived Phenotypes|GWAS summary stats||
 | Image Derived Phenotypes|ieQTLs summary stats||
 
