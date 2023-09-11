@@ -223,6 +223,8 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 
 # Supplementary Material and Data
 
+| Slide ID | IDP_0 |
+|----------|----------|
 | Features Extraction|DINO checkpoint||
 | RNAPath|Results and checkpoints||
 | Image Derived Phenotypes|Derived substructures||
