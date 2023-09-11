@@ -98,11 +98,11 @@ print('\nLoad Dataset')
 args.n_classes=len(args.genes)
 
 # dataset creation
-dataset = Generic_MIL_Dataset(csv_path = 'resources/HE2RNA_dataset.csv',
+dataset = Generic_MIL_Dataset(csv_path = 'resources/slides_dataset.csv',
                         data_dir= os.path.join(args.data_root_dir, ''),
                         shuffle = False, 
                         seed = args.seed, 
-                        rna_seq_csv= './RNA-SEQ-Analysis/rnaseq_complete.csv',
+                        rna_seq_csv= './resources/rnaseq_complete.csv',
                         print_info = True,
                         label_dict = {'gen_exp': 0},
                         genes = args.genes,

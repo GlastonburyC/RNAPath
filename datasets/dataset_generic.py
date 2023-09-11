@@ -37,7 +37,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		label_dict = {},
 		filter_dict = {},
 		ignore=[],
-		rna_seq_csv = './RNA-SEQ-Analysis/rnaseq_complete.csv'
+		rna_seq_csv = './resources/rnaseq_complete.csv'
 		):
 		"""
 		Args:
@@ -319,16 +319,23 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 			# If bag-level dropout is applied and the slide is in the train set
 			if self.bag_dropout and slide_id in self.splits_bool_df[self.splits_bool_df['train']==True].iloc[:,0].tolist():
 				
+				'''
+					Patch set sampling
+					Include this just if multiple patch representations per WSI are available
+				'''
 				# Randomly select 1 of the 4 possible patch representations
 				patch_sets = [0, 32, 64, 96]
 				n = random.randint(0, 3)
 				patch_set_i = patch_sets[n]
 				
+				# If a different patch set with respect to the base one is sampled, upload its related features 
 				if n >= 1 and os.path.exists(os.path.join(data_dir, 'pt_files', f'{slide_id}_{patch_set_i}.pt')):
 					features = torch.load(os.path.join(data_dir, 'pt_files', f'{slide_id}_{patch_set_i}.pt'))
 
-
-				# Bag-level dropout
+				
+				'''
+					Bag-level dropout
+				'''
 
 				# Calculate the number of rows to keep (random - between 70% and 100%)
 				num_rows_to_keep = np.random.randint(int(features.shape[0] * 0.7), int(features.shape[0]*1.0))
@@ -348,7 +355,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 
 class Generic_Split(Generic_MIL_Dataset):
-	def __init__(self, slide_data, data_dir=None, num_classes=0, rna_seq_csv='./RNA-SEQ-Analysis/rnaseq_complete.csv', genes = None, bag_dropout=True ):
+	def __init__(self, slide_data, data_dir=None, num_classes=0, rna_seq_csv='./resources/rnaseq_complete.csv', genes = None, bag_dropout=True ):
 		self.slide_data = slide_data
 		self.data_dir = data_dir
 		self.num_classes = num_classes

@@ -258,8 +258,9 @@ def validate(cur, epoch, model, loader, n_classes, early_stopping = None, writer
     val_loss = 0.
     val_error = 0.
 
-    genes_list = pd.read_csv(f'./resources/genes_{tissue_code}.txt', header=None)[0].tolist()
-    genes_descriptions = pd.read_csv(f'./resources/genes_desc_{tissue_code}.txt', header=None)[0].tolist()
+    genes_df = pd.read_csv(f'./resources/gene_set_{tissue_code}.txt', sep=' ')
+    genes_list = genes_df['gene_id'].tolist()
+    genes_descriptions = genes_df['gene_desc'].tolist()
 
     with torch.no_grad():
         pred = []
@@ -342,8 +343,9 @@ def summary(model, loader, n_classes, results_dir=None, tissue_code=None, split=
 
     rscores = []
 
-    genes_list = pd.read_csv(f'./resources/genes_{tissue_code}.txt', header=None)[0].tolist()
-    genes_descriptions = pd.read_csv(f'./resources/genes_desc_{tissue_code}.txt', header=None)[0].tolist()
+    genes_df = pd.read_csv(f'./resources/gene_set_{tissue_code}.txt', sep=' ')
+    genes_list = genes_df['gene_id'].tolist()
+    genes_descriptions = genes_df['gene_desc'].tolist()
     
     
     with torch.no_grad():
