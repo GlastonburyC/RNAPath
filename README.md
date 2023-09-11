@@ -18,7 +18,8 @@ python preprocessing/segmentation_patching/segmentation.py
 ## 2. Tiling
 The tissue region of WSI, identified by segmentation, is divided into small squared tiles (or patches) (e.g. 128x128); this allows both to process the WSI through GPU and to obtain local (tile-level) results.
 ```
-python preprocessing/segmentation_patching/tiling.py
+cd ./preprocessing/segmentation_patching
+python tiling.py
 ```
 * Parameters configuration in preprocessing/segmentation_patching/config.yaml
 * The weights of the ViT-S trained on 1.7M tiles from 23 GTEx tissues is available at (link to big files folder).
@@ -31,7 +32,8 @@ python preprocessing/segmentation_patching/tiling.py
 
 Tile images are turned into features vectors capturing their morphological content. To do this, we use a vision transformer (ViT-S) trained on 1.7 M histology patches using a self-supervised approach.
 ```
-python preprocessing/features_extraction/extract_features.py
+cd ./preprocessing/features_extraction/
+python extract_features.py
 ```
 * Paramters configuration in preprocessing/features_extraction/config.yaml
 * The output of features extraction for each slide is a .pt file containing a 2D tensor of shape (K, 384), where K is the number of tiles and 384 the number of features.
@@ -134,12 +136,14 @@ python tiles_classification/define_clusters_kNN.py --tissue_name Heart --checkpo
 2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the .h5 and classify all the patches of the WSIs. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
 As arguments, the tissue name, the output directory, the patch features main directory and the slides directory are required.
 ```
-python tiles_classification/multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slides_dir /path/to/slides/dir/
+cd ./tiles_classification
+python multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slides_dir /path/to/slides/dir/
 ```
 A script for fine-grained segmentation is also provided; in this case, the 4 partially overlapping patch sets are used for the same slide and, in the regions where multiple patch sets overlap, classes are assigned by majority voting. 
 
 ```
-python tiles_classification/fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
+cd ./tiles_classification
+python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --output_dir /path/to/output/dir/ --features_dir /path/to/features/dir/ --slide_name /slide/name
 ```
 
 <img width="510" alt="image" src="https://github.com/GlastonburyC/RNAPath/assets/115783390/5ea6a74e-2888-4922-984b-6db43980da07" align="center">
