@@ -5,11 +5,11 @@ _Francesco Cisternino, Sara Ometto, Soumick Chatterjee, Edoardo Giacopuzzi, Adam
 
 # WSI Preprocessing
 ## 1. Segmentation
-Segmentation allows to separate the tissue from background in WSIs. The output are binary masks (stored as .jpeg).
+Segmentation allows to separate the tissue from background in WSIs. The output are binary masks (stored as `.jpeg`).
 ```
 python preprocessing/segmentation_patching/segmentation.py
 ```
-* Parameters configuration in preprocessing/segmentation_patching/config.yaml
+* Parameters configuration in `preprocessing/segmentation_patching/config.yaml`
 
 ![image](https://github.com/GlastonburyC/RNAPath/assets/115783390/aff88069-de35-4fcd-99a6-515985272cae)
 
@@ -35,7 +35,7 @@ Tile images are turned into features vectors capturing their morphological conte
 cd ./preprocessing/features_extraction
 python extract_features.py
 ```
-* Paramters configuration in preprocessing/features_extraction/config.yaml
+* Parameters configuration in `preprocessing/features_extraction/config.yaml`
 * The output of features extraction for each slide is a .pt file containing a 2D tensor of shape (K, 384), where K is the number of tiles and 384 the number of features.
 * During features extraction, white patches that could have been included in the tissue mask are filtered out; tipically this happens if there are very small holes in the tissue sample. For this reason, we also store a .h5 file for each slide containing both the features and the final list of coordinates.
 
@@ -46,9 +46,9 @@ python extract_features.py
 
 ## 1. Training
 
-RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (link to big files folder).
-In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected. In case of different representation, the script ./datasets/dataset_generic.py should be modified.
-The RNASeq dataframe (rnaseq_complete.csv), available in the supplementary material, should be placed in ./resources.
+RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in `./resources/gene_set_example.txt`) and a csv file with the genes TPMs (link to big files folder).
+In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected. In case of different representation, the script `./datasets/dataset_generic.py` should be modified.
+The RNASeq dataframe (rnaseq_complete.csv), available in the supplementary material, should be placed in `./resources`.
 
 The training script requires some arguments to be set:
 * *--exp_code* : experiment code to identify logs and results of the actual run
