@@ -47,7 +47,9 @@ python extract_features.py
 ## 1. Training
 
 RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in ./resources/gene_set_example.txt) and a csv file with the genes TPMs (link to big files folder).
-In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected.
+In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected. In case of different representation, the script ./datasets/dataset_generic.py should be modified.
+The RNASeq dataframe (rnaseq_complete.csv), available in the supplementary material, should be placed in ./resources.
+
 The training script requires some arguments to be set:
 * *--exp_code* : experiment code to identify logs and results of the actual run
 * *--tissue_code*: alphanumeric code to indentify the tissue of interest
@@ -226,12 +228,15 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 | Data | Link |
 |----------|----------|
 | Features Extraction|DINO checkpoint||
+| RNAPath|RNASeq dataframe||
 | RNAPath|Results and checkpoints||
+| Image Derived Phenotypes|Tile classes annotations||
 | Image Derived Phenotypes|Derived substructures||
 | Image Derived Phenotypes|Differential expression analysis summary stats||
 | Image Derived Phenotypes|Differential expression analysis - Genes enrichment||
 | Image Derived Phenotypes|GWAS summary stats||
 | Image Derived Phenotypes|ieQTLs summary stats||
+
 
 
 _[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
