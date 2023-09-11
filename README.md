@@ -223,12 +223,14 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 
 # Supplementary Material and Data
 
-| Slide ID | IDP_0 |
+| Data | Link |
 |----------|----------|
 | Features Extraction|DINO checkpoint||
 | RNAPath|Results and checkpoints||
 | Image Derived Phenotypes|Derived substructures||
 | Image Derived Phenotypes|Differential expression analysis results||
+| Image Derived Phenotypes|GWAS summary stats||
+| Image Derived Phenotypes|ieQTLs summary stats||
 
 
 _[WIP - We are still transfering code from our internal gitlab to this github repo but we wanted to make this public asap.]_
