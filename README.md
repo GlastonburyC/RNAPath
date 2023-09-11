@@ -230,6 +230,7 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 | Features Extraction|DINO checkpoint||
 | RNAPath|RNASeq dataframe||
 | RNAPath|Results and checkpoints||
+| RNAPath - Image Derived Phenotypes|SSES enrichments||
 | Image Derived Phenotypes|Tile classes annotations||
 | Image Derived Phenotypes|Derived substructures||
 | Image Derived Phenotypes|Differential expression analysis summary stats||
