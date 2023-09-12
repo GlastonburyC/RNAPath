@@ -243,3 +243,5 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 | Image Derived Phenotypes|[GWAS summary stats](https://drive.google.com/drive/folders/1eZ0qhJgFoF-3aXWEJMAEfcy5-8H2Mj1i?usp=sharing)||
 | Image Derived Phenotypes|[ieQTLs summary stats](https://drive.google.com/file/d/1WIB7heYJ6jxsg4-AtNbwIeqKLMVmpsLS/view?usp=sharing)||
 | RNAPath - Image Derived Phenotypes|[SSES enrichments](https://drive.google.com/drive/folders/1f8-jgkAlR0Q7KGhhCnmXWZ3j7veqv0t5?usp=sharing)||
+
+raw eQTL summary statistics can be provided on request (craig.glastonbury[at]fht.org) (300GB).
