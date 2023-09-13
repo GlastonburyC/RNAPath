@@ -5,7 +5,7 @@ _Francesco Cisternino, Sara Ometto, Soumick Chatterjee, Edoardo Giacopuzzi, Adam
 
 # WSI Preprocessing
 ## 1. Segmentation
-Segmentation allows to separate the tissue from background in WSIs. The output are binary masks (stored as `.jpeg`).
+Segmentation allows us to separate the tissue from background in WSIs. The output are binary masks (stored as `.jpeg`).
 ```
 python preprocessing/segmentation_patching/segmentation.py
 ```
@@ -16,7 +16,7 @@ python preprocessing/segmentation_patching/segmentation.py
 
 
 ## 2. Tiling
-The tissue region of WSI, identified by segmentation, is divided into small squared tiles (or patches) (e.g. 128x128); this allows both to process the WSI through GPU and to obtain local (tile-level) results.
+The tissue region of WSI, identified by segmentation, is divided into small squared tiles (or patches) (e.g. 128x128); this allows us to process the WSI using GPUs and to obtain local (tile-level) results.
 ```
 cd ./preprocessing/segmentation_patching
 python tiling.py
@@ -36,9 +36,9 @@ Tile images are turned into features vectors capturing their morphological conte
 cd ./preprocessing/features_extraction
 python extract_features.py
 ```
-* Parameters configuration in `preprocessing/features_extraction/config.yaml`
-* The output of features extraction for each slide is a .pt file containing a 2D tensor of shape (K, 384), where K is the number of tiles and 384 the number of features.
-* During features extraction, white patches that could have been included in the tissue mask are filtered out; tipically this happens if there are very small holes in the tissue sample. For this reason, we also store a .h5 file for each slide containing both the features and the final list of coordinates.
+* Parameter configuration in `preprocessing/features_extraction/config.yaml`
+* The output of the feature extraction step for each slide is a `.pt` file containing a 2D tensor of shape `(K, 384)`, where K is the number of tiles and 384 the number of features.
+* During features extraction, white patches that could have been included in the tissue mask are filtered out; typically this happens if there are very small holes in the tissue sample. For this reason, we also store a `.h5` file for each slide containing both the features and the final list of coordinates.
 
 # RNAPath
 
@@ -48,13 +48,13 @@ python extract_features.py
 
 ## 1. Training
 
-RNAPath training requires patch features to represent WSIs, train/validation/test splits, a txt indicating the list of genes to be profiled (example in `./resources/gene_set_example.txt`) and a csv file with the genes TPMs.
-In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one of 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected. In case of different representation, the script `./datasets/dataset_generic.py` should be modified.
-The RNASeq dataframe (rnaseq_complete.csv), available in the supplementary material, should be placed in `./resources`.
+RNAPath training requires patch features to represent WSIs, train/validation/test splits, a `.txt` indicating the list of genes to be profiled (example in `./resources/gene_set_example.txt`) and a csv file with the genes TPMs.
+In this study, 4 different partially overlapping representations of the same slide are computed: to the original patch set, 3 other sets have been added by shifting the original one by 32x32, 64x64 and 96x96 pixels. During each training interation, a single representation (patch set) is randomly selected. In case of a different representation, the script `./datasets/dataset_generic.py` should be modified.
+The RNASeq dataframe (`rnaseq_complete.csv`), available in the supplementary data (at the bottom of this `README.md`), should be placed in `./resources`.
 
 The training script requires some arguments to be set:
 * *--exp_code* : experiment code to identify logs and results of the actual run
-* *--tissue_code*: alphanumeric code to indentify the tissue of interest
+* *--tissue_code*: alphanumeric code to identify the tissue of interest
 * *--data_root_dir*: main directory of patch features
 * *--split_dir*: directory of splits (if not specified, it will be ./splits/RNAPath_{tissue_code}) (default: None)
 * *--results_dir*: directory where results will be stored (default: './results')
@@ -73,13 +73,13 @@ The training script requires some arguments to be set:
 python train.py --exp_code test_0 --tissue_code HEA --data_root_dir /path/to/features/dir/
 ```
 
-During training, training and validation loss values will be logged and a results folder will be created (inside results_dir) and named as the experiment code; in this folder, the gene-level r-scores for both validation and test set and the weights checkpoint file will be stored.
+During training, training and validation loss values will be logged and a results folder will be created (inside `results_dir`) and named as the experiment code; in this folder, the gene-level r-scores for both validation and test set and the weights checkpoint file will be stored.
 
 ## 2. Inference and visualization
 
 ### 2.1 Inference
 
-At inference, trained models are used to infer patch-level expression. Patch logits are stored as .pt files and can be used to plot heatmaps of the genes of interest.
+At inference, trained models are used to infer patch-level expression. Patch logits are stored as `.pt` files and can be used to plot heatmaps of the genes of interest.
 The inference scripts requires the following arguments:
 
 * *--tissue_name*: name of the tissue (e.g. Heart, Colon, Skin, EsophagusMucosa for GTEx)
@@ -95,7 +95,7 @@ python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/t
 
 ### 2.2 Visualization
 
-The predicted localization of gene activity can be visually represented by plotting patch logits over the histology sample. Heatmaps are stored in the jpeg format.
+The predicted localization of gene activity can be visually represented by plotting patch logits over the histology sample. Heatmaps are stored in the `.jpeg` format.
 The following arguments are needed:
 
 * *--gene_name*: gene name (description)
@@ -119,7 +119,7 @@ python heatmaps.py --gene_name CD19 --slide_id SLIDE_ID --tissue_name EsophagusM
 
 # Tissue multiclass segmentation by tiles clustering
 
-The following scripts foresee this file organization for the WSI; please, apply changes to the code in case of different structure.
+The following scripts expect the following file organization for the WSI; please, apply changes to the code in case of a different structure.
 ```
 SLIDES_DIRECTORY/
     ├── Tissue1
@@ -133,11 +133,11 @@ SLIDES_DIRECTORY/
 ```
 
 To segment tissues into substructures or localised pathologies by patch-level classification using a k-Nearest Neighbors model, two steps are required:
-1. Definition of instances and labels for the k-NN; instances are patch-level features, while classes are defined into a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a h5 file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
+1. Definition of instances and labels for the k-NN; instances are patch-level features, while classes are defined in a yaml file. The instances used to fit the k-NN have been hand-labelled. The following script creates a `.h5` file containing patch features and their corresponding labels; this file will be then used to fit the k-NN model for tiles classification.
 ```
 python tiles_classification/define_clusters_kNN.py --tissue_name Heart --checkpoint_path /path/to/features_extraction/checkpoint.pth
 ```
-2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the .h5 and classify all the patches of the WSIs. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
+2. Multi-class segmentation of H&E tissue samples by tiles classification. The script loads the previously defined h5 file, fits a k-NN model using the features and labels stored in the `.h5` and classifies all the patches of the WSI. Segmentation masks and csv files containing the class of each patch (identified by the upper left corner coordinates) are output.
 As arguments, the tissue name, the output directory, the patch features main directory and the slides directory are required.
 ```
 cd ./tiles_classification
@@ -155,7 +155,7 @@ python fine_grained_multiclass_tissue_segmentation.py --tissue_name Heart --outp
 
 # Image derived phenotypes
 
-Image phenotypes (e.g. amount of mucosa in colon samples, aumont of adipocytes, etc.) are derived using the patch classes output by the multiclass tissue segmentation script; indeed, these phenotypes reflect the relative amount of each target class in a sample.
+Image phenotypes (e.g. amount of mucosa in colon samples, amount of adipose, etc.) are derived using the patch classes output by the multiclass tissue segmentation script; indeed, these phenotypes reflect the relative amount of each target class in a sample.
 The following script can be used to compute such phenotypes as proportions (with respect to the sample size). This will make the compositional phenotypes comparable across samples.
 ```
 cd ./image_derived_phenotypes
@@ -169,7 +169,7 @@ The script outputs a csv file for each tissue, in the following format:
 | SLIDE_001|20.9%|25.1%|44.3%|1.0%|2.5%|1.2%|4.9%|
 | SLIDE_002|39.6%|23.1%|33.0%|1.5%|1.2%|2.8%|3.5%|
 
-Compositional phenotypes are easy to interpretate, but they are not the proper choice for statistical analysis, given the closure problem. For this reason, they can be turned into pivot coordinates (a special case of isometric logratio coordinates):
+Compositional phenotypes are easy to interpretate, but they are not the appropriate choice for statistical analysis, given their compositional nature. For this reason, they can be turned into pivot coordinates (a special case of a isometric logratio transformation):
 
 ```
 cd ./image_derived_phenotypes
@@ -178,7 +178,7 @@ python compute_pivot_coordinates.py --tissue_name EsophagusMucosa --idps_dir /pa
 
 # SSES - Substructure-Specific Enrichment Analysis
 
-SSES combines results from RNAPath (local RNASeq prediction) with tiles classification into tissue substructures or localised pathologies. The output of this analyis is a set of enrichment scores, one per each couple (gene, substructure) indicating the ratio between the predicted expression inside the substructure/pathology and the bulk (sample-level) predicted expression; the bigger this value, the more the expression of the gene will be focused in that substructure/pathology.
+SSES combines results from RNAPath (local RNASeq prediction) with tileclassification into tissue substructures or localised pathologies. The output of this analyis is a set of enrichment scores, one per each couple (gene, substructure) indicating the ratio between the predicted expression inside the substructure/pathology and the bulk (sample-level) predicted expression; the bigger this value, the more the expression of the gene will be focused in that substructure/pathology.
 The following arguments are required
 
 
@@ -196,7 +196,7 @@ The script outputs a csv file with as many row as the number of genes and as man
 
 # Differential expression analysis
 
-Differential expression analysis of image derived phenotypes has been performed by linear models fitting. To run the analysis, some parameters are required:
+Differential expression analysis of image derived phenotypes has been performed by fitting linear models. To run the analysis, some parameters are required:
 
 * *--tissue_name*
 * *--gtex_expression_bed_file*: bed file with normalized expression levels for the selected tissue
@@ -213,7 +213,7 @@ python differential_expression_analysis_IDPs.py --tissue_name EsophagusMucosa --
   
 # GWAS
 
-The genome-wide association analysis was conducted using [nf-pipeline-regenie](https://github.com/HTGenomeAnalysisUnit/nf-pipeline-regenie) (v1.8.1). A config file defining the computations environment and a config file for the project (example in ./gwas/gtex.conf) are needed to launch the pipeline. A complete description on how to use it and template files can be found in the linked repository.
+The genome-wide association analysis was conducted using [nf-pipeline-regenie](https://github.com/HTGenomeAnalysisUnit/nf-pipeline-regenie) (v1.8.1). A config file defining the computational environment and a config file for the project (example in ./gwas/gtex.conf) are needed to launch the pipeline. A complete description on how to use it and template files can be found in the linked repository.
 
 Regional plots, Manhattan plots and quantile-quantile plots were generated with [GWASLab](https://github.com/Cloufield/gwaslab) (v3.4.21).
 
