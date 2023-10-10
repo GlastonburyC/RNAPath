@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 import openslide
 from PIL import ImageDraw
-from preprocessing.preprocessing_utils import slide_to_scaled_pil_image, save_hdf5
+from preprocessing_utils import slide_to_scaled_pil_image, save_hdf5
 from dataset import Whole_Slide_Mask
 from torch.utils.data import DataLoader
 import h5py
