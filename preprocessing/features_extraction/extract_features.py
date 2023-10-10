@@ -5,9 +5,9 @@ import datetime
 import glob
 import openslide
 import math
-from wsi_preprocessing.preprocessing_utils import  get_coords_h5
-from wsi_preprocessing.model import FeaturesExtraction_Vit
-from wsi_preprocessing.dataset import Tiles_Bag
+from preprocessing_utils import  get_coords_h5
+from model import FeaturesExtraction_Vit
+from dataset import Tiles_Bag
 from torch.utils.data import DataLoader
 import h5py
 import random
