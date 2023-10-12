@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from PIL import Image
 import time
-from wsi_utils import slide_to_scaled_pil_image
+from preprocessing.preprocessing_utils import slide_to_scaled_pil_image
 import argparse
 import os
 
