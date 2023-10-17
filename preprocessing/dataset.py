@@ -12,7 +12,7 @@ from PIL import Image
 
 class Whole_Slide_Mask(Dataset):
 
-    def __init__(self, slide, tile_size, mask, overlap = 1):
+    def __init__(self, slide, tile_size, mask, overlap = 0.0):
         
         # slide : openslide WSI
         # tile_size : dimension of each squared patch (e.g. 256 or 512)
