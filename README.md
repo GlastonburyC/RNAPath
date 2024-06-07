@@ -1,6 +1,8 @@
 # [Self-supervised learning for characterising histomorphological diversity and spatial RNA expression prediction across 23 human tissue types](https://www.biorxiv.org/content/10.1101/2023.08.22.554251v1)
 _Francesco Cisternino, Sara Ometto, Soumick Chatterjee, Edoardo Giacopuzzi, Adam P. Levine, Craig A. Glastonbury_
 
+[![DOI](https://zenodo.org/badge/680114644.svg)](https://zenodo.org/doi/10.5281/zenodo.11519629)
+
 # WSI Preprocessing
 ## 1. Segmentation
 Segmentation allows us to separate the tissue from background in WSIs. The output are binary masks (stored as `.jpeg`).
