@@ -29,7 +29,7 @@ python tiling.py
 <img width="907" alt="image" src="imgs/263020413-3d2d3dfc-57b5-4e3f-9dd5-524773386d23.png">
 </p>
 
-## 3. Features extraction
+## 3. Feature extraction
 
 Tile images are turned into features vectors capturing their morphological content. To do this, we use a vision transformer (ViT-S) trained on 1.7 M histology patches using a self-supervised approach.
 ```
@@ -93,7 +93,7 @@ The inference scripts requires the following arguments:
 python inference.py --tissue_name Heart --tissue_code HEA --features_dir /path/to/features/dir/ --output_dir /path/to/patch_logits/dir/ --results_dir /path/to/results/dir/ --ckpt_path /path/to/rnapath/checkpoint.pt --multiple_patch_sets
 ```
 
-### 2.2 Visualization
+### 2.2 Visualisation
 
 The predicted localization of gene activity can be visually represented by plotting patch logits over the histology sample. Heatmaps are stored in the `.jpeg` format.
 The following arguments are needed:
