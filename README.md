@@ -88,7 +88,7 @@ The inference scripts requires the following arguments:
 * *--tissue_code*: alphanumeric code to indentify the tissue of interest
 * *--features_dir*: main directory of patch features
 * *--output_dir*: directory where patch level expression values (patch logits) will be stored
-* *--results_dir*: trainig results directory
+* *--results_dir*: training results directory
 * *--ckpt_path*: path to RNAPath model checkpoint
 * *--multiple_patch_sets*: if multiple partially overlapping patch sets are used for the same slide (default: False)
 ```
