@@ -35,7 +35,7 @@ h5_file_path = './' + args.tissue_name + '_clusters.h5'
 
 # Load images from each class into a list
 for c in classes:    
-    images = glob.glob(f'/group/glastonbury/gtex-proto-class-labels/{args.folder_name}/**/' + c + '_128/*.jpg')
+    images = glob.glob(f'./class_labels/{args.folder_name}/**/' + c + '_128/*.jpg')
     if len(images) > 1000:
         random.shuffle(images)
         images_clusters.append(images[:1000])
