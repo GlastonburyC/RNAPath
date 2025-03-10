@@ -235,6 +235,7 @@ Interaction eQTLs have been analyzed using [tensorqtl](https://github.com/broadi
 
 | Data | Link |
 |----------|----------|
+| Image Segmentation Checkpoint|[PathProfiler checkpoint (.pth)](https://drive.google.com/drive/folders/1Fpq7wNKpBeZhTRfxzDLrWmUWl-_r21p9?usp=drive_link)||
 | Features Extraction|[DINO checkpoint (.pt)](https://drive.google.com/file/d/1jvN-A1e_4SrqK6MUkjm0-H8bO_QyKARW/view?usp=sharing)||
 | RNAPath|[RNASeq dataframe](https://drive.google.com/file/d/10G5GLdekSRLdWJjPMjXnlTMbGYPC-Sqb/view?usp=sharing)||
 | RNAPath|[Results and checkpoints](https://drive.google.com/drive/folders/1f-5iPdHQZZWZFLuBHIclxXZFsixhGsMy?usp=sharing)||
