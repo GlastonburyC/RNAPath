@@ -167,4 +167,4 @@ if __name__ == "__main__":
     else:
         chunk = []
 
-    extract_features(args, chunk, doc)
+    extract_features(chunk, doc)
